@@ -1,0 +1,2 @@
+# MyBackgroundThread
+ Mengimplementasikan background thread
