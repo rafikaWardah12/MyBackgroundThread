@@ -11,6 +11,23 @@ Project ini memuat simulasi dari background thread yang dapat mempengaruhi proce
 * Tidak memblokir UI Thread
 * Tidak memanggil Ui di luar UI Thread
 2. *Application Not Responding* (ANR) bisa terjadi karena saat proses memanipulasi bitmap dan proses menghubungi server dilakukan di Ui thread/main thread. ANR biasanya akan muncul setelah 5 detik dari UI yang mengalami Freeze.
+3. Executor = komponen untuk memanajemen banyak thread sekaligus (urutan proses, penjadwalan, maupun menjalankan proses secara paralel)
+  * #### *Jenis Executor*:
+    * *newSingleThreadExecutor* = membuat 1 thread.
+      * Alasan? Apabila ada beberapa request yang berjalan maka request selanjutnya akan dijalankan setelah thread 1 selesai.
+    * *newFixedThreadPool(nThreads)* = membuat banyak thread dengan memasukkan nThread dengan jumlah thread yang ingin dibuat. CONTOH? newFixedThreadPool(4)
+    * Membuat 4 thread yang tetap.
+    * Sehingga apabila ada beberapa request yang berjalan, maka dibagi ke 4 thread tersebut secara paralel.
+* *newCachedThreadPool* = sesuai dengan kebutuhan
+  * Menggunakan thread sebelumnya misal bisa dipakai. Lalu, thread yang sudah tidak dipakai selama 1 menit akan otomatis dihapus dari cache.
+
+4. ExecutorService = turunan dari Executor
+  * Fungsi:
+  * ExecutorService dapat memantau proses yang berjalan dengan memakai fungsi submit yang menghasilkan Future. 
+*Ada fungsi shutdown = untuk menolak task baru
+* Fungsi Cancel = membatalkan task.
+5. Handler.post = berpindah antar thread
+
 ### *Contoh code membuat freeze:*
 * Metode setText pada MainActivity =
   * SetText berada dalam process asynchronous background thread, yaitu thread sedang menjalankan loadStringFromNetwork( ) 
