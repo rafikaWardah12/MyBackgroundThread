@@ -26,8 +26,9 @@ Project ini memuat simulasi dari background thread yang dapat mempengaruhi proce
 **4. ExecutorService** = turunan dari Executor
   * Fungsi:
      * ExecutorService dapat memantau proses yang berjalan dengan memakai fungsi submit yang menghasilkan Future. 
-     *Ada fungsi shutdown = untuk menolak task baru
+     * Ada fungsi shutdown = untuk menolak task baru
      * Fungsi Cancel = membatalkan task.
+       
 **5. Handler.post** = berpindah antar thread
 
 ### *Contoh code membuat freeze:*
