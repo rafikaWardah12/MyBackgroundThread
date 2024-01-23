@@ -7,11 +7,11 @@ Project ini memuat simulasi dari background thread yang dapat mempengaruhi proce
 4. Menjalankan aplikasi kembali dan tidak terjadi freeze
 5. Menambahkan Coroutine sebagai alternative Executor Service di Kotlin
 # What I Learn
-1. **Aturan dalam membuat Thread Baru:**
+**1. Aturan dalam membuat Thread Baru:**
 * Tidak memblokir UI Thread
 * Tidak memanggil Ui di luar UI Thread
-2. *Application Not Responding* (ANR) bisa terjadi karena saat proses memanipulasi bitmap dan proses menghubungi server dilakukan di Ui thread/main thread. ANR biasanya akan muncul setelah 5 detik dari UI yang mengalami Freeze.
-3. Executor = komponen untuk memanajemen banyak thread sekaligus (urutan proses, penjadwalan, maupun menjalankan proses secara paralel)
+**2. *Application Not Responding* (ANR)** bisa terjadi karena saat proses memanipulasi bitmap dan proses menghubungi server dilakukan di Ui thread/main thread. ANR biasanya akan muncul setelah 5 detik dari UI yang mengalami Freeze.
+**3. Executor** = komponen untuk memanajemen banyak thread sekaligus (urutan proses, penjadwalan, maupun menjalankan proses secara paralel)
   * #### *Jenis Executor*:
     * *1. newSingleThreadExecutor* = membuat 1 thread.
         * Alasan? Apabila ada beberapa request yang berjalan maka request selanjutnya akan dijalankan setelah thread 1 selesai.
@@ -21,12 +21,12 @@ Project ini memuat simulasi dari background thread yang dapat mempengaruhi proce
     * *3. newCachedThreadPool* = sesuai dengan kebutuhan
         * Menggunakan thread sebelumnya misal bisa dipakai. Lalu, thread yang sudah tidak dipakai selama 1 menit akan otomatis dihapus dari cache.
 
-4. ExecutorService = turunan dari Executor
+**4. ExecutorService** = turunan dari Executor
   * Fungsi:
-  * ExecutorService dapat memantau proses yang berjalan dengan memakai fungsi submit yang menghasilkan Future. 
-*Ada fungsi shutdown = untuk menolak task baru
-* Fungsi Cancel = membatalkan task.
-5. Handler.post = berpindah antar thread
+     * ExecutorService dapat memantau proses yang berjalan dengan memakai fungsi submit yang menghasilkan Future. 
+     *Ada fungsi shutdown = untuk menolak task baru
+     * Fungsi Cancel = membatalkan task.
+**5. Handler.post** = berpindah antar thread
 
 ### *Contoh code membuat freeze:*
 * Metode setText pada MainActivity =
