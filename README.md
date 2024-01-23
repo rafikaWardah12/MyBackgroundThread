@@ -12,8 +12,11 @@ Project ini memuat simulasi dari background thread yang dapat mempengaruhi proce
 * Tidak memanggil Ui di luar UI Thread
 2. *Application Not Responding* (ANR) bisa terjadi karena saat proses memanipulasi bitmap dan proses menghubungi server dilakukan di Ui thread/main thread. ANR biasanya akan muncul setelah 5 detik dari UI yang mengalami Freeze.
 ### *Contoh code membuat freeze:*
-* Metode setText =
+* Metode setText pada MainActivity =
+  * SetText berada dalam process asynchronous background thread, yaitu thread sedang menjalankan loadStringFromNetwork( ) 
   * Bagian dari textView. Sementara itu textView adalah salah satu komponen ui
+### *How to fix it?*
+* Membuat thread baru dan menggunakan fungsi post untuk menampilkan data
 
 
 
