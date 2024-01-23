@@ -7,7 +7,7 @@ Project ini memuat simulasi dari background thread yang dapat mempengaruhi proce
 4. Menjalankan aplikasi kembali dan tidak terjadi freeze
 5. Menambahkan Coroutine sebagai alternative Executor Service di Kotlin
 # What I Learn
-1. Aturan dalam membuat Thread Baru :
+1. **Aturan dalam membuat Thread Baru :**
 * Tidak memblokir UI Thread
 * Tidak memanggil Ui di luar UI Thread
 2. *Application Not Responding* (ANR) bisa terjadi karena saat proses memanipulasi bitmap dan proses menghubungi server dilakukan di Ui thread/main thread. ANR biasanya akan muncul setelah 5 detik dari UI yang mengalami Freeze
