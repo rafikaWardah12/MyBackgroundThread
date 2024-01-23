@@ -14,12 +14,12 @@ Project ini memuat simulasi dari background thread yang dapat mempengaruhi proce
 3. Executor = komponen untuk memanajemen banyak thread sekaligus (urutan proses, penjadwalan, maupun menjalankan proses secara paralel)
   * #### *Jenis Executor*:
     * *newSingleThreadExecutor* = membuat 1 thread.
-      * Alasan? Apabila ada beberapa request yang berjalan maka request selanjutnya akan dijalankan setelah thread 1 selesai.
+        * Alasan? Apabila ada beberapa request yang berjalan maka request selanjutnya akan dijalankan setelah thread 1 selesai.
     * *newFixedThreadPool(nThreads)* = membuat banyak thread dengan memasukkan nThread dengan jumlah thread yang ingin dibuat. CONTOH? newFixedThreadPool(4)
-    * Membuat 4 thread yang tetap.
-    * Sehingga apabila ada beberapa request yang berjalan, maka dibagi ke 4 thread tersebut secara paralel.
+        * Membuat 4 thread yang tetap.
+        * Sehingga apabila ada beberapa request yang berjalan, maka dibagi ke 4 thread tersebut secara paralel.
 * *newCachedThreadPool* = sesuai dengan kebutuhan
-  * Menggunakan thread sebelumnya misal bisa dipakai. Lalu, thread yang sudah tidak dipakai selama 1 menit akan otomatis dihapus dari cache.
+        * Menggunakan thread sebelumnya misal bisa dipakai. Lalu, thread yang sudah tidak dipakai selama 1 menit akan otomatis dihapus dari cache.
 
 4. ExecutorService = turunan dari Executor
   * Fungsi:
